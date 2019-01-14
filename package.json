@@ -1,0 +1,25 @@
+{
+  "name": "brain-games",
+  "version": "0.0.1",
+  "description": "My first project on hexlet.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlevchuk/project-lvl1-s416.git"
+  },
+  "author": "Nikita Levchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nlevchuk/project-lvl1-s416/issues"
+  },
+  "homepage": "https://github.com/nlevchuk/project-lvl1-s416#readme",
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3"
+  }
+}
