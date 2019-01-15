@@ -4,7 +4,6 @@
   "description": "My first project on hexlet.io",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
@@ -25,13 +24,13 @@
   },
   "homepage": "https://github.com/nlevchuk/project-lvl1-s416#readme",
   "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "readline-sync": "^1.4.9"
-  },
-  "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
