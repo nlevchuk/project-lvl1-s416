@@ -2,7 +2,11 @@
   "name": "brain-games-s416",
   "version": "0.0.3",
   "description": "My first project on hexlet.io",
-  "main": "index.js",
+  "keywords": [
+    "hexlet",
+    "projects",
+    "brain-games"
+  ],
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
