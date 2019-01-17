@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 
+const questionsCount = 3;
 const isEven = num => num % 2 === 0;
 
 const getQuestionAndAnswer = () => {
@@ -14,8 +15,6 @@ const evenGame = () => {
 
   const userName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${userName}!\n`);
-
-  const questionsCount = 3;
 
   for (let i = 0; i < questionsCount; i += 1) {
     const { question, correctAnswer } = getQuestionAndAnswer();
