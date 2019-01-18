@@ -1,32 +1,34 @@
 import readlineSync from 'readline-sync';
 
-const createNewGame = {
-  questionsCount: 3,
+const questionsCount = 3;
 
-  start() {
-    console.log('\nWelcome to the Brain Games!');
-    console.log(this.rule);
+const getQuestion = round => round('question');
+const getAnswer = round => round('answer');
 
-    const userName = readlineSync.question('\nMay I have your name? ');
-    console.log(`Hello, ${userName}!\n`);
+const createNewGame = ({ rule, newRound }) => () => {
+  console.log('\nWelcome to the Brain Games!');
+  console.log(rule);
 
-    for (let i = 0; i < this.questionsCount; i += 1) {
-      const question = this.newQuestion();
-      const answer = this.getAnswer(question);
+  const userName = readlineSync.question('\nMay I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
 
-      console.log(`Question: ${question.toString()}`);
-      const userAnswer = readlineSync.question('Your answer: ');
+  for (let i = 0; i < questionsCount; i += 1) {
+    const round = newRound();
+    const question = getQuestion(round);
+    const answer = getAnswer(round);
 
-      if (!answer.isEqual(userAnswer)) {
-        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer.toString()}".`);
-        console.log(`Let's try again, ${userName}!`);
-        return;
-      }
-      console.log('Correct!');
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (userAnswer !== answer) {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}".`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
     }
+    console.log('Correct!');
+  }
 
-    console.log(`Congratulations, ${userName}!`);
-  },
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default createNewGame;

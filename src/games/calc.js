@@ -2,38 +2,34 @@ import createNewGame from '../game';
 import randomNumber from '../random-number';
 
 const operators = '+-*';
-const correctAnswer = ({ firstOperand, lastOperand, operator }) => {
+const correctAnswer = ({ firstOperand, secondOperand, operator }) => {
   switch (operator) {
     case '+':
-      return firstOperand + lastOperand;
+      return firstOperand + secondOperand;
     case '-':
-      return firstOperand - lastOperand;
+      return firstOperand - secondOperand;
     case '*':
-      return firstOperand * lastOperand;
+      return firstOperand * secondOperand;
     default:
       throw new Error('Unknown operator');
   }
 };
 
-const game = createNewGame;
-game.rule = 'What is the result of the expression?';
+const rule = 'What is the result of the expression?';
+const newRound = () => {
+  const firstOperand = randomNumber();
+  const secondOperand = randomNumber();
+  const operator = operators[Math.floor(Math.random() * operators.length)];
+  return (message) => {
+    switch (message) {
+      case 'question':
+        return (`${firstOperand} ${operator} ${secondOperand}`);
+      case 'answer':
+        return (`${correctAnswer({ firstOperand, secondOperand, operator })}`);
+      default:
+        throw new Error('Unknown message');
+    }
+  };
+};
 
-game.newQuestion = () => ({
-  firstOperand: randomNumber(),
-  lastOperand: randomNumber(),
-  operator: operators[Math.floor(Math.random() * operators.length)],
-  toString() {
-    return (`${this.firstOperand} ${this.operator} ${this.lastOperand}`);
-  },
-});
-
-game.getAnswer = question => ({
-  isEqual(userAnswer) {
-    return this.toString() === userAnswer;
-  },
-  toString() {
-    return (`${correctAnswer(question)}`);
-  },
-});
-
-export default game;
+export default createNewGame({ rule, newRound });
