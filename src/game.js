@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const Game = {
+const createNewGame = {
   questionsCount: 3,
 
   start() {
@@ -11,18 +11,17 @@ const Game = {
     console.log(`Hello, ${userName}!\n`);
 
     for (let i = 0; i < this.questionsCount; i += 1) {
-      const question = this.getQuestion();
-      const correctAnswer = this.getAnswer(question);
+      const question = this.newQuestion();
+      const answer = this.getAnswer(question);
 
-      console.log(`Question: ${question}`);
+      console.log(`Question: ${question.toString()}`);
       const userAnswer = readlineSync.question('Your answer: ');
 
-      if (userAnswer !== correctAnswer) {
-        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
+      if (!answer.isEqual(userAnswer)) {
+        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer.toString()}".`);
         console.log(`Let's try again, ${userName}!`);
         return;
       }
-
       console.log('Correct!');
     }
 
@@ -30,4 +29,4 @@ const Game = {
   },
 };
 
-export default Game;
+export default createNewGame;
