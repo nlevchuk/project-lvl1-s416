@@ -13,3 +13,7 @@
 ## Greatest common divisor game
 
 [![asciicast](https://asciinema.org/a/222411.svg)](https://asciinema.org/a/222411)
+
+## Progression game
+
+[![asciicast](https://asciinema.org/a/222428.svg)](https://asciinema.org/a/222428)
