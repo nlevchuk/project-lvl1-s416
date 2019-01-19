@@ -19,8 +19,8 @@ const correctAnswer = ({ firstNumber, secondNumber }) => {
   return gcd(greater, lower);
 };
 
-const rule = 'Find the greatest common divisor of given numbers.';
-const newRound = () => {
+const description = 'Find the greatest common divisor of given numbers.';
+const dataGenerator = () => {
   const firstNumber = randomNumberFromHundreds();
   const secondNumber = randomNumberFromHundreds();
   const question = `${firstNumber} ${secondNumber}`;
@@ -37,4 +37,4 @@ const newRound = () => {
   };
 };
 
-export default createNewGame({ rule, newRound });
+export default createNewGame(description, dataGenerator);

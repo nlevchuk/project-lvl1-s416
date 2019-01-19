@@ -15,8 +15,8 @@ const correctAnswer = ({ firstOperand, secondOperand, operator }) => {
   }
 };
 
-const rule = 'What is the result of the expression?';
-const newRound = () => {
+const description = 'What is the result of the expression?';
+const dataGenerator = () => {
   const firstOperand = randomNumberFromHundreds();
   const secondOperand = randomNumberFromHundreds();
   const operator = operators[Math.floor(Math.random() * operators.length)];
@@ -34,4 +34,4 @@ const newRound = () => {
   };
 };
 
-export default createNewGame({ rule, newRound });
+export default createNewGame(description, dataGenerator);

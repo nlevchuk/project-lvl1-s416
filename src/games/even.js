@@ -4,8 +4,8 @@ import { randomNumberFromHundreds } from '../random-numbers';
 const isEven = num => num % 2 === 0;
 const correctAnswer = number => (isEven(number) ? 'yes' : 'no');
 
-const rule = 'Answer "yes" if number even otherwise answer "no".';
-const newRound = () => {
+const description = 'Answer "yes" if number even otherwise answer "no".';
+const dataGenerator = () => {
   const number = randomNumberFromHundreds();
   const question = `${number}`;
   const answer = `${correctAnswer(number)}`;
@@ -21,4 +21,4 @@ const newRound = () => {
   };
 };
 
-export default createNewGame({ rule, newRound });
+export default createNewGame(description, dataGenerator);

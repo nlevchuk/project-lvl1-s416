@@ -4,8 +4,8 @@ import { randomNumberFromHundreds, randomNumberFromTens } from '../random-number
 const progressionLength = 10;
 const progressionCalc = (start, diff) => n => start + diff * (n - 1);
 
-const rule = 'What number is missing in the progression?';
-const newRound = () => {
+const description = 'What number is missing in the progression?';
+const dataGenerator = () => {
   const startNumber = randomNumberFromHundreds();
   const difference = randomNumberFromHundreds();
   const missingIndex = randomNumberFromTens();
@@ -28,4 +28,4 @@ const newRound = () => {
   };
 };
 
-export default createNewGame({ rule, newRound });
+export default createNewGame(description, dataGenerator);

@@ -5,15 +5,15 @@ const questionsCount = 3;
 const getQuestion = round => round('question');
 const getAnswer = round => round('answer');
 
-const createNewGame = ({ rule, newRound }) => () => {
+const createNewGame = (description, dataGenerator) => () => {
   console.log('\nWelcome to the Brain Games!');
-  console.log(rule);
+  console.log(description);
 
   const userName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${userName}!\n`);
 
   for (let i = 0; i < questionsCount; i += 1) {
-    const round = newRound();
+    const round = dataGenerator();
     const question = getQuestion(round);
     const answer = getAnswer(round);
 
