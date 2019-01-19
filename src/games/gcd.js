@@ -1,5 +1,5 @@
 import createNewGame from '../game';
-import { randomNumberFromHundreds } from '../random-numbers';
+import randomNumber from '../utils';
 
 const orderedNumbers = (first, second) => {
   if (first > second) {
@@ -21,8 +21,8 @@ const correctAnswer = ({ firstNumber, secondNumber }) => {
 
 const description = 'Find the greatest common divisor of given numbers.';
 const dataGenerator = () => {
-  const firstNumber = randomNumberFromHundreds();
-  const secondNumber = randomNumberFromHundreds();
+  const firstNumber = randomNumber(1, 100);
+  const secondNumber = randomNumber(1, 100);
   const question = `${firstNumber} ${secondNumber}`;
   const answer = `${correctAnswer({ firstNumber, secondNumber })}`;
   return (message) => {

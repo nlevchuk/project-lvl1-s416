@@ -1,14 +1,14 @@
 import createNewGame from '../game';
-import { randomNumberFromHundreds, randomNumberFromTens } from '../random-numbers';
+import randomNumber from '../utils';
 
 const progressionLength = 10;
 const progressionCalc = (start, diff) => n => start + diff * (n - 1);
 
 const description = 'What number is missing in the progression?';
 const dataGenerator = () => {
-  const startNumber = randomNumberFromHundreds();
-  const difference = randomNumberFromHundreds();
-  const missingIndex = randomNumberFromTens();
+  const startNumber = randomNumber(1, 100);
+  const difference = randomNumber(1, 100);
+  const missingIndex = randomNumber(1, 10);
   const progression = progressionCalc(startNumber, difference);
   let question = '';
   for (let i = 1; i <= progressionLength; i += 1) {

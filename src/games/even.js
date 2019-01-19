@@ -1,12 +1,12 @@
 import createNewGame from '../game';
-import { randomNumberFromHundreds } from '../random-numbers';
+import randomNumber from '../utils';
 
 const isEven = num => num % 2 === 0;
 const correctAnswer = number => (isEven(number) ? 'yes' : 'no');
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 const dataGenerator = () => {
-  const number = randomNumberFromHundreds();
+  const number = randomNumber(1, 100);
   const question = `${number}`;
   const answer = `${correctAnswer(number)}`;
   return (message) => {

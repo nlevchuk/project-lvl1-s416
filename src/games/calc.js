@@ -1,5 +1,5 @@
 import createNewGame from '../game';
-import { randomNumberFromHundreds } from '../random-numbers';
+import randomNumber from '../utils';
 
 const operators = '+-*';
 const correctAnswer = ({ firstOperand, secondOperand, operator }) => {
@@ -17,8 +17,8 @@ const correctAnswer = ({ firstOperand, secondOperand, operator }) => {
 
 const description = 'What is the result of the expression?';
 const dataGenerator = () => {
-  const firstOperand = randomNumberFromHundreds();
-  const secondOperand = randomNumberFromHundreds();
+  const firstOperand = randomNumber(1, 100);
+  const secondOperand = randomNumber(1, 100);
   const operator = operators[Math.floor(Math.random() * operators.length)];
   const question = `${firstOperand} ${operator} ${secondOperand}`;
   const answer = `${correctAnswer({ firstOperand, secondOperand, operator })}`;
