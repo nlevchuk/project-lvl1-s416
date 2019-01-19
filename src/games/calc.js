@@ -1,5 +1,5 @@
 import createNewGame from '../game';
-import randomNumber from '../random-number';
+import { randomNumberFromHundreds } from '../random-numbers';
 
 const operators = '+-*';
 const correctAnswer = ({ firstOperand, secondOperand, operator }) => {
@@ -17,15 +17,17 @@ const correctAnswer = ({ firstOperand, secondOperand, operator }) => {
 
 const rule = 'What is the result of the expression?';
 const newRound = () => {
-  const firstOperand = randomNumber();
-  const secondOperand = randomNumber();
+  const firstOperand = randomNumberFromHundreds();
+  const secondOperand = randomNumberFromHundreds();
   const operator = operators[Math.floor(Math.random() * operators.length)];
+  const question = `${firstOperand} ${operator} ${secondOperand}`;
+  const answer = `${correctAnswer({ firstOperand, secondOperand, operator })}`;
   return (message) => {
     switch (message) {
       case 'question':
-        return (`${firstOperand} ${operator} ${secondOperand}`);
+        return question;
       case 'answer':
-        return (`${correctAnswer({ firstOperand, secondOperand, operator })}`);
+        return answer;
       default:
         throw new Error('Unknown message');
     }

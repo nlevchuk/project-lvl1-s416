@@ -1,5 +1,5 @@
 import createNewGame from '../game';
-import randomNumber from '../random-number';
+import { randomNumberFromHundreds } from '../random-numbers';
 
 const orderedNumbers = (first, second) => {
   if (first > second) {
@@ -21,14 +21,16 @@ const correctAnswer = ({ firstNumber, secondNumber }) => {
 
 const rule = 'Find the greatest common divisor of given numbers.';
 const newRound = () => {
-  const firstNumber = randomNumber();
-  const secondNumber = randomNumber();
+  const firstNumber = randomNumberFromHundreds();
+  const secondNumber = randomNumberFromHundreds();
+  const question = `${firstNumber} ${secondNumber}`;
+  const answer = `${correctAnswer({ firstNumber, secondNumber })}`;
   return (message) => {
     switch (message) {
       case 'question':
-        return (`${firstNumber} ${secondNumber}`);
+        return question;
       case 'answer':
-        return (`${correctAnswer({ firstNumber, secondNumber })}`);
+        return answer;
       default:
         throw new Error('Unknown message');
     }
