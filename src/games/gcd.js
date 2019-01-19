@@ -1,15 +1,9 @@
 import createNewGame from '../game';
 import randomNumber from '../utils';
 
-const orderedNumbers = (first, second) => {
-  if (first > second) {
-    return [first, second];
-  }
-  return [second, first];
-};
-
 const findGcd = (firstNumber, secondNumber) => {
-  const [greater, lower] = orderedNumbers(firstNumber, secondNumber);
+  const greater = Math.max(firstNumber, secondNumber);
+  const lower = Math.min(firstNumber, secondNumber);
   const gcd = (dividend, divider) => {
     if (divider === 0) {
       return dividend;
