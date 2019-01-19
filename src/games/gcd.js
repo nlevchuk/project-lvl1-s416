@@ -8,7 +8,7 @@ const orderedNumbers = (first, second) => {
   return [second, first];
 };
 
-const correctAnswer = ({ firstNumber, secondNumber }) => {
+const findGcd = (firstNumber, secondNumber) => {
   const [greater, lower] = orderedNumbers(firstNumber, secondNumber);
   const gcd = (dividend, divider) => {
     if (divider === 0) {
@@ -24,7 +24,7 @@ const dataGenerator = () => {
   const firstNumber = randomNumber(1, 100);
   const secondNumber = randomNumber(1, 100);
   const question = `${firstNumber} ${secondNumber}`;
-  const answer = `${correctAnswer({ firstNumber, secondNumber })}`;
+  const answer = `${findGcd(firstNumber, secondNumber)}`;
   return (message) => {
     switch (message) {
       case 'question':
