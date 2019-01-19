@@ -19,7 +19,7 @@ const description = 'What is the result of the expression?';
 const dataGenerator = () => {
   const firstOperand = randomNumber(1, 100);
   const secondOperand = randomNumber(1, 100);
-  const operator = operators[Math.floor(Math.random() * operators.length)];
+  const operator = operators[randomNumber(0, operators.length - 1)];
   const question = `${firstOperand} ${operator} ${secondOperand}`;
   const answer = `${correctAnswer({ firstOperand, secondOperand, operator })}`;
   return (message) => {
