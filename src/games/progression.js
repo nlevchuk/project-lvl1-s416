@@ -15,6 +15,7 @@ const dataGenerator = () => {
     const currentNumber = (i === missingIndex) ? '..' : progression(i);
     question = question.concat(`${currentNumber} `);
   }
+  question = question.trim();
   const answer = `${progression(missingIndex)}`;
   return (message) => {
     switch (message) {
