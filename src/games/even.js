@@ -1,4 +1,4 @@
-import createNewGame from '../game';
+import { createNewGame } from '..';
 import randomNumber from '../utils';
 
 const isEven = num => num % 2 === 0;

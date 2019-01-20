@@ -1,4 +1,4 @@
-import createNewGame from '../game';
+import { createNewGame } from '..';
 import randomNumber from '../utils';
 
 const progressionLength = 10;
