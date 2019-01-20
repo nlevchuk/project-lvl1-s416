@@ -2,10 +2,11 @@ import { createNewGame } from '..';
 import randomNumber from '../utils';
 
 const isPrime = (number) => {
-  if (number < 1) {
+  if (number < 2) {
     return false;
   }
-  for (let i = 2; i < Math.sqrt(number); i += 1) {
+  const lastDivisor = Math.floor(Math.sqrt(number));
+  for (let i = 2; i <= lastDivisor; i += 1) {
     if (number % i === 0) {
       return false;
     }
