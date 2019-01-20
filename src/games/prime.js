@@ -1,4 +1,4 @@
-import { createNewGame } from '..';
+import createNewGame from '..';
 import randomNumber from '../utils';
 
 const isPrime = (number) => {
